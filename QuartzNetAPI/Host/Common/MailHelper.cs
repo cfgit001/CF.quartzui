@@ -41,7 +41,7 @@ namespace Host.Common
             };
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                await client.ConnectAsync(mailInfo.MailHost, 465, true);
+                await client.ConnectAsync(mailInfo.MailHost, 587,MailKit.Security.SecureSocketOptions.Auto);
                 await client.AuthenticateAsync(mailInfo.MailFrom, mailInfo.MailPwd);
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
