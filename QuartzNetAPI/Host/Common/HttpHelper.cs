@@ -30,7 +30,9 @@ namespace Host
             var uri = new Uri(url);
             var key = uri.Scheme + uri.Host;
             //if (!dictionary.Keys.Contains(key))
-            return dictionary.GetOrAdd(key, new HttpClient());
+            HttpClient httpc = new HttpClient();
+            httpc.Timeout = System.Threading.Timeout.InfiniteTimeSpan;
+            return dictionary.GetOrAdd(key,httpc);
             //return dictionary[key];
         }
 

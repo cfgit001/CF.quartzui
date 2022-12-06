@@ -1,12 +1,16 @@
 /QuartzNetAPI/Host/File/logs
 /QuartzNetAPI/Host/File/sqliteScheduler.db
 /QuartzNetAPI/Host/bin
+/QuartzNetAPI/Host/published
 /QuartzNetAPI/Host/obj
 /QuartzNetAPI/Host.Tests/obj
 /QuartzNetAPI/Host.Tests/bin
 /QuartzNetAPI/.vs
+/QuartzNetAPI/published
 /QuartzNetAPI/Host/File/Mail.txt
 /QuartzNetAPI/Host/RaspberryPi
 /QuartzNetWeb/.vscode
+/QuartzNetWeb/.vs
 /QuartzNetAPI/Host/File/sqliteScheduler.db-journal
 /QuartzNetAPI/Host/File/LoginPassword.json
+/.vs
