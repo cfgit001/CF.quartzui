@@ -31,7 +31,9 @@ namespace Host
             var key = uri.Scheme + uri.Host;
             //if (!dictionary.Keys.Contains(key))
             HttpClient httpc = new HttpClient();
-            httpc.Timeout = System.Threading.Timeout.InfiniteTimeSpan;
+            //httpc.Timeout = System.Threading.Timeout.InfiniteTimeSpan;
+            TimeSpan infiniteTimeSpan = new TimeSpan(0, 0, 0, 0, -1);
+            http.Timeout = infiniteTimeSpan;
             return dictionary.GetOrAdd(key,httpc);
             //return dictionary[key];
         }
