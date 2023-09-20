@@ -33,8 +33,8 @@ namespace Host
             HttpClient httpc = new HttpClient();
             //httpc.Timeout = System.Threading.Timeout.InfiniteTimeSpan;
             TimeSpan infiniteTimeSpan = new TimeSpan(0, 0, 0, 0, -1);
-            http.Timeout = infiniteTimeSpan;
-            return dictionary.GetOrAdd(key,httpc);
+            httpc.Timeout = infiniteTimeSpan;
+            return dictionary.GetOrAdd(key, httpc);
             //return dictionary[key];
         }
 
