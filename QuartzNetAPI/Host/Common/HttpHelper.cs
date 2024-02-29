@@ -33,7 +33,7 @@ namespace Host
             HttpClient httpc = new HttpClient();
             //httpc.Timeout = System.Threading.Timeout.InfiniteTimeSpan;
             TimeSpan infiniteTimeSpan = new TimeSpan(0, 0, 0, 0, -1);
-            httpc.Timeout = infiniteTimeSpan;
+            httpc.Timeout = infiniteTimeSpan;//如果HttpClient需調整注意其他部分的HttpClient
             return dictionary.GetOrAdd(key, httpc);
             //return dictionary[key];
         }
@@ -62,6 +62,7 @@ namespace Host
                         http.DefaultRequestHeaders.Remove(item.Key);
                         http.DefaultRequestHeaders.TryAddWithoutValidation(item.Key, item.Value);
                     }
+                    http.Timeout = new TimeSpan(0, 0, 0, 0, -1);//如果HttpClient需調整注意其他部分的HttpClient
                     return await http.PostAsync(new Uri(url), content);
                 }
             }
@@ -102,6 +103,7 @@ namespace Host
                         http.DefaultRequestHeaders.Remove(item.Key);
                         http.DefaultRequestHeaders.TryAddWithoutValidation(item.Key, item.Value);
                     }
+                    http.Timeout = new TimeSpan(0, 0, 0, 0, -1);//如果HttpClient需調整注意其他部分的HttpClient
                     return await http.GetAsync(url);
                 }
             }
@@ -134,6 +136,7 @@ namespace Host
                         http.DefaultRequestHeaders.Remove(item.Key);
                         http.DefaultRequestHeaders.TryAddWithoutValidation(item.Key, item.Value);
                     }
+                    http.Timeout = new TimeSpan(0, 0, 0, 0, -1);//如果HttpClient需調整注意其他部分的HttpClient
                     return await http.PutAsync(url, content);
                 }
             }
@@ -174,6 +177,7 @@ namespace Host
                         http.DefaultRequestHeaders.Remove(item.Key);
                         http.DefaultRequestHeaders.TryAddWithoutValidation(item.Key, item.Value);
                     }
+                    http.Timeout = new TimeSpan(0, 0, 0, 0, -1);//如果HttpClient需調整注意其他部分的HttpClient
                     return await http.DeleteAsync(url);
                 }
             }
